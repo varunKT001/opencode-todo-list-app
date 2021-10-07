@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+  .todo-form {
+    width: 100% !important;
+  }
+  .todo-list {
+    width: 100% !important;
+  }
+}
