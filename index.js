@@ -18,10 +18,16 @@ function UpdateLocalStorage() {
 function addTodo(event) {
   event.preventDefault();
   let TodoText = document.getElementById('todo-text').value;
-  TODOS.push(TodoText);
-  UpdateLocalStorage();
-  DisplayTodos();
-  document.getElementById('todo-text').value = '';
+
+  if (!TodoText) {
+    ShowAlert('Please write a todo &#128528;', 'danger');
+  } else {
+    TODOS.push(TodoText);
+    UpdateLocalStorage();
+    DisplayTodos();
+    ShowAlert('Todo added successfully 	&#128512;', 'success');
+    document.getElementById('todo-text').value = '';
+  }
 }
 
 function DisplayTodos() {
@@ -43,4 +49,29 @@ function DeleteTodo(index) {
   TODOS.splice(index, 1);
   UpdateLocalStorage();
   DisplayTodos();
+  ShowAlert('Todo deleted successfully &#128578;', 'danger');
+}
+
+function ShowAlert(text, type) {
+  let Alert = document.createElement('div');
+  Alert.classList.add('todo-alert');
+  Alert.innerHTML = `<div
+        class="
+          alert alert-${type} alert-dismissible
+          fade
+          show
+          w-50
+          mx-auto
+        "
+        role="alert"
+      >
+        <strong>${text}</strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>`;
+  document.querySelector('main').prepend(Alert);
 }
