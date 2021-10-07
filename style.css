@@ -5,4 +5,7 @@
   .todo-list {
     width: 100% !important;
   }
+  .todo-alert {
+    width: 100% !important;
+  }
 }

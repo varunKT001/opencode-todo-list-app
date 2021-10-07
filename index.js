@@ -54,14 +54,12 @@ function DeleteTodo(index) {
 
 function ShowAlert(text, type) {
   let Alert = document.createElement('div');
-  Alert.classList.add('todo-alert');
+  Alert.classList.add('todo-alert', 'w-50', 'mx-auto');
   Alert.innerHTML = `<div
         class="
           alert alert-${type} alert-dismissible
           fade
           show
-          w-50
-          mx-auto
         "
         role="alert"
       >
